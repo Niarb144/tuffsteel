@@ -3,105 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TuffSteel Kenya | Building Strength. Forging the Future.</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+  <title>TuffSteel Industries</title>
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
 </head>
-<body class="transition-colors duration-500">
-  <!-- Hero Section -->
-  <section class="relative h-screen flex flex-col justify-center items-center text-center px-4">
-    <video class="hero-video" autoplay muted loop>
-      <source src="/videos/mixed_steel_background.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-
-    <nav class="absolute top-0 left-0 w-full flex justify-between items-center p-6 bg-gradient-to-b from-black/70 to-transparent">
-      <img src="/images/tuffsteel_logo.png" alt="TuffSteel Logo" class="h-12">
-      <ul class="hidden md:flex space-x-8 text-sm font-medium">
-        <li><a href="#products" class="hover:text-accent transition">Products</a></li>
-        <li><a href="#about" class="hover:text-accent transition">About</a></li>
-        <li><a href="#projects" class="hover:text-accent transition">Projects</a></li>
-        <li><a href="#blog" class="hover:text-accent transition">Blog</a></li>
-        <li><a href="#contact" class="hover:text-accent transition">Contact</a></li>
-      </ul>
-      <div class="flex items-center space-x-4">
-        <select class="bg-transparent border border-gray-600 text-sm p-1 rounded-md">
-          <option>English</option>
-          <option>Kiswahili</option>
-          <option>Indian</option>
-        </select>
-        <button id="themeToggle" class="text-xl focus:outline-none transition hover:text-accent">🌙</button>
-      </div>
+<body>
+  <!-- ===== Navbar ===== -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="assets/logo.png" alt="TuffSteel Logo">
+    </div>
+    <nav class="nav-controls">
+      <select class="language-switcher">
+        <option value="en">English</option>
+        <option value="sw">Kiswahili</option>
+        <option value="in">Indian</option>
+      </select>
+      <button id="theme-toggle" class="theme-toggle">🌞</button>
     </nav>
+  </header>
 
-    <div class="fade-in max-w-3xl mt-24">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-tight">Building Strength.<br>Forging the Future.</h1>
-      <p class="text-lg text-gray-300 mb-8">Kenya’s trusted partner for steel and construction materials – serving industries, contractors, and individuals nationwide.</p>
-      <div class="space-x-4">
-        <a href="#products" class="btn-primary">Explore Products</a>
-        <button onclick="toggleQuoteModal(true)" class="btn-secondary">Request a Quote</button>
-      </div>
+  <!-- ===== Hero Section ===== -->
+  <section class="hero">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="assets/videos/molten-steel.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Strength You Can Rely On</h1>
+      <p>Supplying high-quality steel products for Africa’s builders, industries, and innovators.</p>
+      <a href="#quote" class="btn-primary">Request a Quote</a>
     </div>
   </section>
 
-  <!-- Quote Modal -->
-  <div id="quoteModal" class="hidden fixed inset-0 bg-black/70 flex justify-center items-center z-50">
-    <div class="modal-content">
-      <button onclick="toggleQuoteModal(false)" class="absolute top-4 right-4 text-gray-400 hover:text-white">&times;</button>
-      <h2 class="text-2xl font-bold mb-4">Request a Quote</h2>
-      <form class="space-y-4">
-        <input type="text" placeholder="Full Name" class="input-field">
-        <input type="email" placeholder="Email Address" class="input-field">
-        <input type="text" placeholder="Product Type" class="input-field">
-        <textarea placeholder="Your Message / Requirements" rows="4" class="input-field"></textarea>
-        <button type="submit" class="btn-primary w-full">Submit Request</button>
-      </form>
-    </div>
-  </div>
-
-  <section id="products" class="py-20 text-center fade-in">
-    <h2 class="text-3xl font-bold mb-6">Our Products</h2>
-    <p class="text-gray-400 max-w-2xl mx-auto mb-10">High-quality materials for every project – from steel bars to roofing and cement.</p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-8">
-      <div class="card">
-        <h3 class="font-semibold text-xl mb-2">Steel Products</h3>
-        <p class="text-gray-400">Reinforcement bars, hollow sections, and sheets.</p>
-      </div>
-      <div class="card">
-        <h3 class="font-semibold text-xl mb-2">Cement & Roofing</h3>
-        <p class="text-gray-400">Durable solutions for structural integrity and finish.</p>
-      </div>
-      <div class="card">
-        <h3 class="font-semibold text-xl mb-2">Wires & Accessories</h3>
-        <p class="text-gray-400">Binding wires, nails, and construction essentials.</p>
-      </div>
+  <!-- ===== Products Section ===== -->
+  <section class="products reveal">
+    <h2>Our Products</h2>
+    <p>Explore a wide range of industrial-grade steel materials crafted for durability and performance.</p>
+    <div class="product-grid">
+      <div class="product-card">Steel Sheets</div>
+      <div class="product-card">Steel Bars</div>
+      <div class="product-card">Roofing Sheets</div>
     </div>
   </section>
 
-  <footer class="py-10 text-center text-gray-400 border-t border-gray-800">
-    <p>&copy; 2025 TuffSteel Kenya. All Rights Reserved.</p>
+  <!-- ===== About Section ===== -->
+  <section class="about reveal">
+    <h2>About TuffSteel</h2>
+    <p>
+      For over two decades, TuffSteel has been at the forefront of East Africa’s steel industry,
+      providing trusted products and tailored solutions for both major contractors and individual customers.
+    </p>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <p>&copy; 2025 TuffSteel Industries. All Rights Reserved.</p>
   </footer>
 
-  <script>
-    function toggleQuoteModal(show) {
-      const modal = document.getElementById('quoteModal');
-      modal.classList.toggle('hidden', !show);
-    }
-
-    const toggle = document.getElementById('themeToggle');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const currentTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
-
-    document.body.dataset.theme = currentTheme;
-    toggle.textContent = currentTheme === 'dark' ? '🌞' : '🌙';
-
-    toggle.addEventListener('click', () => {
-      const newTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
-      document.body.dataset.theme = newTheme;
-      localStorage.setItem('theme', newTheme);
-      toggle.textContent = newTheme === 'dark' ? '🌞' : '🌙';
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
