@@ -1,314 +1,154 @@
-/* ==============================
-   Base Setup
-============================== */
-:root {
-  --bg-color: #0f1114;
-  --text-color: #e5e7eb;
-  --accent-color: #2e8ff0;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --overlay: rgba(0, 0, 0, 0.55);
-  --transition-speed: 0.3s;
-  --heading-font: "Poppins", sans-serif;
-  --body-font: "Inter", sans-serif;
+/* =========================
+   STYLE.CSS (desktop-first)
+   Industrial / architectural theme
+   ========================= */
+
+/* ---------- variables (dark default) ---------- */
+:root{
+  --bg: #0f0f10;
+  --panel: #111215;
+  --muted: #9aa4ad;
+  --text: #eef3f8;
+  --accent: #1e6bd6;
+  --accent-2: #b08a5c; /* bronze highlight */
+  --glass: rgba(255,255,255,0.03);
+  --card-radius: 10px;
+  --max-width: 1200px;
+  --transition: 300ms cubic-bezier(.2,.9,.2,1);
 }
 
-:root.light {
-  --bg-color: #f8f9fa;
-  --text-color: #1f2937;
-  --accent-color: #2563eb;
-  --card-bg: rgba(0, 0, 0, 0.05);
-  --overlay: rgba(255, 255, 255, 0.55);
+/* light theme toggled by data-theme="light" on body */
+body[data-theme="light"]{
+  --bg: #f6f7f9;
+  --panel: #ffffff;
+  --muted: #555d66;
+  --text: #0e1114;
+  --accent: #165fb8;
+  --glass: rgba(0,0,0,0.03);
 }
 
-/* Smooth transitions when theme toggles */
-* {
-  transition: background-color var(--transition-speed) ease,
-              color var(--transition-speed) ease,
-              border-color var(--transition-speed) ease;
+/* global */
+*{box-sizing:border-box;scroll-behavior: smooth;}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+img{max-width:100%;display:block}
+
+/* container */
+.container{max-width:var(--max-width);margin:0 auto;padding:0 32px}
+
+/* ---------- sidebar (desktop) ---------- */
+.sidebar{
+  position:fixed;
+  left:0;
+  top:0;
+  bottom:0;
+  width:120px;
+  background:linear-gradient(180deg,var(--panel), #0a0a0a);
+  border-right:1px solid rgba(255,255,255,0.02);
+  display:flex;
+  align-items:stretch;
+  z-index:40;
+}
+.sidebar-inner{display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:28px 12px;height:100%}
+.brand-logo{width:64px;height:auto;display:block}
+
+/* side nav */
+.side-nav{writing-mode:vertical-rl;transform:rotate(180deg);display:flex;gap:18px;align-items:center}
+.side-link{color:var(--muted);text-decoration:none;font-size:12px;letter-spacing:2px;display:block;transition:color var(--transition)}
+.side-link .label{display:none}
+.side-link:hover{color:var(--text)}
+
+/* social */
+.side-footer{display:flex;flex-direction:column;gap:14px;margin-top:20px}
+.social{color:var(--muted);text-decoration:none;font-size:14px;opacity:.9}
+
+/* ---------- topbar (mobile) ---------- */
+.topbar{
+  display:none; /* hidden on desktop */
+  position:fixed;top:0;left:0;right:0;height:64px;background:transparent;z-index:50;align-items:center;justify-content:space-between;padding:10px 16px;
+}
+.topbar-logo{height:40px}
+.hamburger{background:transparent;border:0;color:var(--text);font-size:22px;padding:6px}
+.topbar .lang{border-radius:6px;padding:6px 8px;border:1px solid rgba(255,255,255,0.06)}
+.theme-btn{background:var(--glass);border:0;padding:6px 8px;border-radius:6px;color:var(--text)}
+
+#main{
+    margin-left: 4rem;
 }
 
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  margin: 0;
-  font-family: var(--body-font);
-  overflow-x: hidden;
+/* ---------- hero ---------- */
+.hero{min-height:82vh;display:flex;align-items:center;padding:80px 0 40px 150px;position:relative;overflow:hidden;border-radius:2rem;}
+.hero-video{position:absolute;inset:0;width:100%;height:120%;object-fit:cover;z-index:0;transform:translateY(0) scale(1.05);transition:transform 120ms linear}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg, rgba(5,7,10,0.85) 0%, rgba(5,7,10,0.45) 45%, rgba(5,7,10,0.15) 100%);z-index:1;backdrop-filter:blur(2px)}
+.hero-inner{position:relative;z-index:2;max-width:800px;padding-left:40px}
+.hero-text .kicker{font-family:Montserrat, sans-serif;font-weight:800;letter-spacing:3px;color:var(--muted);font-size:14px;margin:0 0 8px}
+.hero-text .title{font-family:Montserrat, sans-serif;font-weight:800;font-size:48px;line-height:1;margin:0 0 12px;color:var(--text)}
+.hero-text .subtitle{max-width:520px;color:var(--muted);margin-bottom:18px}
+.hero-ctas{display:flex;gap:14px}
+.btn{display:inline-block;padding:12px 20px;border-radius:8px;text-decoration:none;cursor:pointer;font-weight:600}
+.btn-primary{background:linear-gradient(180deg,var(--accent),#134ea0);color:#fff;border:1px solid rgba(255,255,255,0.06);overflow:hidden;position:relative}
+.btn-primary::before{content:"";position:absolute;left:-70%;top:0;height:100%;width:40%;background:linear-gradient(120deg,transparent,rgba(255,255,255,0.25),transparent);transform:skewX(-25deg);transition:left .6s ease}
+.btn-primary:hover::before{left:130%}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+
+/* ---------- sections ---------- */
+.section{padding:80px 0}
+.about .two-col{display:flex;gap:36px;align-items:center}
+.about .col.text{flex:1}
+.about .col.media{flex:1}
+.about img{border-radius:12px;opacity:.95}
+.projects .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:24px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.5);display:flex;flex-direction:column}
+.card-media{height:180px;background-size:cover;background-position:center}
+.card-body{padding:18px}
+.card h4{margin:0 0 8px}
+.card p{margin:0;color:var(--muted);font-size:14px}
+
+/* stats */
+.stats-grid{display:flex;gap:28px;align-items:center;justify-content:center}
+.stat{background:var(--panel);padding:26px;border-radius:10px;text-align:center;min-width:160px}
+.num{font-family:Montserrat, sans-serif;font-size:40px;color:var(--accent);font-weight:800}
+.meta{color:var(--muted);margin-top:6px;}
+
+/* clients */
+.client-logos{display:flex;gap:30px;align-items:center;justify-content:center;flex-wrap:wrap}
+.client-logos img{height:36px;opacity:.6;transition:opacity var(--transition)}
+.client-logos img:hover{opacity:1;transform:translateY(-4px)}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 320px;gap:30px;align-items:start}
+.contact-form input,.contact-form textarea{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:var(--text);margin-bottom:12px}
+.contact-form button{width:100%}
+
+/* footer */
+.footer{padding:36px 32px;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,0.03)}
+
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 700ms ease, transform 700ms ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ---------- responsive rules ---------- */
+@media (max-width:1100px){
+  .hero{padding-left:120px}
+  .sidebar{width:88px}
+  .sidebar-inner{padding:20px}
+}
+@media (max-width:920px){
+  .sidebar{display:none}
+  .topbar{display:flex}
+  .hero{padding:80px 4% 40px}
+  .hero-inner{padding-left:0}
+  .projects .cards{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .hero-text .title{font-size:28px}
+  .projects .cards{grid-template-columns:1fr}
+  .side-nav{display:none}
+  .topbar-logo{height:30px}
 }
 
-/* ==============================
-   Navbar
-============================== */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 3rem;
-  background: linear-gradient(180deg, rgba(15,17,20,0.9), rgba(15,17,20,0.7));
-  backdrop-filter: blur(6px);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 10;
-}
-
-.logo img {
-  height: 45px;
-}
-
-.nav-controls {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.language-switcher {
-  background: var(--card-bg);
-  color: var(--text-color);
-  border: 1px solid var(--accent-color);
-  border-radius: 6px;
-  padding: 0.4rem 0.6rem;
-  font-size: 0.9rem;
-}
-
-.theme-toggle {
-  background: var(--accent-color);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-.theme-toggle:hover {
-  transform: scale(1.1);
-}
-
-/* ==============================
-   Hero Section
-============================== */
-.hero {
-  position: relative;
-  height: 90vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  padding: 0 5%;
-  background-color: #000;
-  perspective: 1px; /* Enables 3D parallax context */
-}
-
-.hero-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 120%; /* Extra height for movement space */
-  object-fit: cover;
-  transform: translateZ(-1px) scale(2); /* Depth illusion */
-  z-index: 0;
-  transition: transform 0.2s ease-out;
-}
-
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--overlay);
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 550px;
-  color: var(--text-color);
-}
-
-.hero-content h1 {
-  font-family: var(--heading-font);
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.hero-content p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-}
-
-/* ==============================
-   Primary Button (Brushed Steel)
-============================== */
-.btn-primary {
-  position: relative;
-  display: inline-block;
-  padding: 0.8rem 1.8rem;
-  background: linear-gradient(145deg, #1a73e8, #155ab6);
-  color: #fff;
-  font-weight: 600;
-  border-radius: 6px;
-  text-decoration: none;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-/* Hover animation for metallic shine */
-.btn-primary::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  transform: skewX(-25deg);
-  transition: left 0.6s ease;
-}
-
-.btn-primary:hover::before {
-  left: 125%;
-}
-
-.btn-primary:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(145deg, #1f7af0, #1870da);
-}
-
-/* Light mode adjustments */
-:root.light .btn-primary {
-  background: linear-gradient(145deg, #2563eb, #1d4ed8);
-  color: #fff;
-}
-
-:root.light .btn-primary:hover {
-  background: linear-gradient(145deg, #3b82f6, #2563eb);
-}
-
-
-/* ==============================
-   Products Section
-============================== */
-.products {
-  padding: 6rem 10%;
-  text-align: center;
-}
-
-.products h2 {
-  font-family: var(--heading-font);
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.products p {
-  max-width: 600px;
-  margin: 0 auto 3rem auto;
-  color: var(--text-color);
-  opacity: 0.85;
-}
-
-.product-grid {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.product-card {
-  background: var(--card-bg);
-  border: 1px solid rgba(255,255,255,0.1);
-  padding: 2rem;
-  border-radius: 10px;
-  width: 220px;
-  font-weight: 500;
-  color: var(--text-color);
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-.product-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent-color);
-}
-
-/* ==============================
-   About Section
-============================== */
-.about {
-  padding: 5rem 15%;
-  text-align: center;
-  background: linear-gradient(180deg, var(--bg-color), #1a1c20);
-}
-
-.about h2 {
-  font-family: var(--heading-font);
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.about p {
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-/* ==============================
-   Footer
-============================== */
-.footer {
-  background: #0c0e10;
-  color: #888;
-  text-align: center;
-  padding: 1.5rem;
-  font-size: 0.9rem;
-}
-
-/* ==============================
-   Scroll Reveal Animation
-============================== */
-.reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ==============================
-   Responsive Tweaks
-============================== */
-@media (max-width: 1024px) {
-  .hero-content h1 {
-    font-size: 2.4rem;
-  }
-  .products, .about {
-    padding: 4rem 6%;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    padding: 1rem 2rem;
-  }
-  .hero {
-    height: 75vh;
-    padding: 0 2rem;
-  }
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-  .product-grid {
-    flex-direction: column;
-    align-items: center;
-  }
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .reveal{transition:none!important}
+  .hero-video{transition:none}
 }
