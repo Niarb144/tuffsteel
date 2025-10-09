@@ -1,195 +1,93 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TuffSteel — Strength. Forging the Future.</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- Main CSS -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TuffSteel | Forging Strength. Building the Future.</title>
   <link rel="stylesheet" href="style.css">
-
-  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- ===== SIDEBAR (desktop) ===== -->
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-inner">
-      <div class="brand">
-        <img src="assets/img/logo.webp" alt="TuffSteel" class="brand-logo">
-      </div>
-
-      <nav class="side-nav">
-        <a href="#hero" class="side-link">01 <span class="label">Hero</span></a>
-        <a href="#about" class="side-link">02 <span class="label">About</span></a>
-        <a href="#projects" class="side-link">03 <span class="label">Products</span></a>
-        <a href="#clients" class="side-link">04 <span class="label">Clients</span></a>
-        <a href="#contact" class="side-link">05 <span class="label">Contact</span></a>
-      </nav>
-
-      <div class="side-footer">
-        <a href="#" aria-label="Twitter" class="social">T</a>
-        <a href="#" aria-label="LinkedIn" class="social">in</a>
-        <a href="#" aria-label="Facebook" class="social">f</a>
-      </div>
-    </div>
-  </aside>
-
-  <!-- ===== TOPBAR (mobile) ===== -->
-  <header class="topbar">
-    <button id="hamburger" class="hamburger" aria-label="Open menu">☰</button>
-    <img src="assets/logo.png" alt="TuffSteel" class="topbar-logo">
-    <div class="topbar-actions">
-      <select id="langSelect" class="lang">
-        <option value="en">EN</option>
-        <option value="sw">SW</option>
-        <option value="in">IN</option>
-      </select>
-      <button id="themeBtn" class="theme-btn" aria-label="Toggle theme">🌙</button>
-    </div>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Tuff<span>Steel</span></div>
+    <nav>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- ===== MAIN CONTENT ===== -->
-  <main id="main">
+  <!-- Hero Section -->
+  <section class="hero">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="assets/videos/molten-steel.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Forging Strength.<br>Building the Future.</h1>
+      <p>Delivering world-class steel solutions for construction, industry, and innovation.</p>
+      <a href="#services" class="cta">Explore Services</a>
+    </div>
+  </section>
 
-    <!-- HERO -->
-    <section id="hero" class="hero">
-      <video class="hero-video" autoplay muted loop playsinline>
-        <source src="assets/videos/molten-steel.mp4" type="video/mp4">
-        <!-- fallback -->
-      </video>
-      <div class="hero-overlay"></div>
-
-      <div class="hero-inner">
-        <div class="hero-text reveal">
-          <h1 class="kicker">BUILDING STRENGTH.</h1>
-          <h2 class="title">Forging the Future</h2>
-          <p class="subtitle">Supplying quality steel & construction materials for contractors and individuals across East Africa.</p>
-          <div class="hero-ctas">
-            <a href="#projects" class="btn btn-primary">Explore Products</a>
-            <a href="#contact" class="btn btn-ghost">Request Quote</a>
-          </div>
-        </div>
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <img src="assets/img/steel.webp" alt="Steel Production">
+        <h3>01. Steel Fabrication</h3>
+        <p>Precision-engineered steel products that meet modern structural demands.</p>
       </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section about reveal">
-      <div class="container two-col">
-        <div class="col text">
-          <h3>About TuffSteel</h3>
-          <p>For over two decades, TuffSteel has provided industrial-grade steel and construction materials, delivering durable solutions to major infrastructure projects and local builders alike.</p>
-          <ul class="features">
-            <li>Quality-certified products</li>
-            <li>Nationwide distribution</li>
-            <li>Technical support & fabrication</li>
-          </ul>
-        </div>
-        <div class="col media">
-          <img src="assets/img/img2.webp" alt="Metal texture" />
-        </div>
+      <div class="service-card">
+        <img src="assets/img/img1.webp" alt="Construction Support">
+        <h3>02. Structural Engineering</h3>
+        <p>Smart, durable frameworks that define the backbone of modern architecture.</p>
       </div>
-    </section>
-
-    <!-- PROJECTS / PRODUCTS -->
-    <section id="projects" class="section projects reveal">
-      <div class="container">
-        <h3>Our Products</h3>
-        <p class="muted">Industrial & construction materials engineered for performance.</p>
-
-        <div class="grid cards">
-          <article class="card reveal">
-            <div class="card-media" style="background-image:url('assets/img/steel.webp')"></div>
-            <div class="card-body">
-              <h4>Steel Bars</h4>
-              <p>High-strength reinforcement bars for structural projects.</p>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-media" style="background-image:url('assets/img/roofing.webp')"></div>
-            <div class="card-body">
-              <h4>Roofing Sheets</h4>
-              <p>Durable roofing solutions with corrosion-resistant finish.</p>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-media" style="background-image:url('assets/img/cement.webp')"></div>
-            <div class="card-body">
-              <h4>Cement & Additives</h4>
-              <p>Premium cement brands and construction chemicals.</p>
-            </div>
-          </article>
-        </div>
+      <div class="service-card">
+        <img src="assets/img/img2.webp" alt="Design and Innovation">
+        <h3>03. Industrial Design</h3>
+        <p>Innovative metal solutions for custom industrial and commercial projects.</p>
       </div>
-    </section>
-
-    <!-- STATS -->
-    <section class="section stats reveal">
-      <div class="container stats-grid">
-        <div class="stat">
-          <div class="num">25</div>
-          <div class="meta">Years in Business</div>
-        </div>
-        <div class="stat">
-          <div class="num">1,200+</div>
-          <div class="meta">Projects Completed</div>
-        </div>
-        <div class="stat">
-          <div class="num">300+</div>
-          <div class="meta">Active Clients</div>
-        </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Supply and Logistics">
+        <h3>04. Logistics & Supply</h3>
+        <p>Reliable, global steel sourcing and delivery, ensuring consistent quality.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CLIENTS -->
-    <section id="clients" class="section clients reveal">
-      <div class="container">
-        <h3>Clients</h3>
-        <div class="client-logos">
-          <img src="assets/client1.png" alt="Client">
-          <img src="assets/client2.png" alt="Client">
-          <img src="assets/client3.png" alt="Client">
-          <img src="assets/client4.png" alt="Client">
-        </div>
+  <!-- Specs Section -->
+  <section id="materials" class="specs">
+    <h2>Material Specs</h2>
+    <div class="specs-content">
+      <div class="specs-list">
+        <ul>
+          <li><span>Structural Steel:</span> Grade 350 MPa</li>
+          <li><span>Rebar:</span> ASTM A615 – 40 mm</li>
+          <li><span>Plates:</span> 6mm – 50mm (Custom)</li>
+          <li><span>Coating:</span> Zinc / Epoxy</li>
+          <li><span>Finishing:</span> Matte Black Industrial</li>
+        </ul>
       </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section contact reveal">
-      <div class="container">
-        <h3>Get in touch</h3>
-        <div class="contact-grid">
-          <form id="contactForm" class="contact-form">
-            <div class="row"><input name="name" placeholder="Name" required></div>
-            <div class="row"><input name="company" placeholder="Company"></div>
-            <div class="row"><input name="email" type="email" placeholder="Email" required></div>
-            <div class="row"><textarea name="message" rows="5" placeholder="Message" required></textarea></div>
-            <div class="row"><button type="submit" class="btn btn-primary">Send Message</button></div>
-          </form>
-
-          <div class="contact-info">
-            <p><strong>Head Office</strong></p>
-            <p>Nairobi, Kenya</p>
-            <p>Phone: +254 700 000 000</p>
-            <p>Email: info@tuffsteel.co.ke</p>
-          </div>
-        </div>
+      <div class="specs-image">
+        <img src="https://images.unsplash.com/photo-1581092786747-6f6b0b240b72?auto=format&fit=crop&w=800&q=80" alt="Steel Plan">
       </div>
-    </section>
-
-  </main>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container">© <span id="year"></span> TuffSteel Ltd — All rights reserved.</div>
+    <p>© 2025 TuffSteel. All Rights Reserved.</p>
   </footer>
 
-  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
