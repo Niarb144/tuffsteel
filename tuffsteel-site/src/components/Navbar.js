@@ -36,19 +36,18 @@ export default function Navbar() {
           : "0 0 0 rgba(0,0,0,0)",
       }}
       transition={{ duration: 0.4 }}
-      className="absolute top-0 left-0 w-full z-50 px-6 py-4"
+      className="fixed top-0 left-0 w-full z-50 px-6 py-4 backdrop-blur-md transition-all duration-500"
     >
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <img src="/logo.png" alt="TuffSteel Logo" className="h-10 w-auto" />
-          <span
-            className={`text-xl font-bold transition-colors duration-300 ${
-              scrolled ? "text-gray-800" : "text-white"
-            }`}
-          >
-            TuffSteel
-          </span>
+          <img
+            src="/images/logo.webp"
+            alt="TuffSteel Logo"
+            className={`transition-all duration-500 ${
+              scrolled ? "h-8" : "h-10"
+            } w-auto`}
+          />
         </Link>
 
         {/* Desktop Menu */}
@@ -145,3 +144,4 @@ export default function Navbar() {
     </motion.nav>
   );
 }
+

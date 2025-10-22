@@ -1,6 +1,7 @@
 "use client";
 
 import HeroSection from "../components/HeroSection";
+import Products from "../components/Products";
 import { motion } from "framer-motion";
 
 export default function HomePage() {
@@ -30,6 +31,8 @@ export default function HomePage() {
           We aim to be the trusted name in East Africa for steel and construction materials.
         </p>
       </motion.section>
+
+      <Products />
     </>
   );
 }
