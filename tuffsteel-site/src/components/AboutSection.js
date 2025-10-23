@@ -29,9 +29,9 @@ export default function AboutSection() {
   return (
     <section
       id="about-section"
-      className="relative w-full py-20 bg-gray-50 overflow-hidden"
+      className="relative w-full h-screen py-20 bg-gray-50 overflow-hidden"
     >
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-12 gap-12">
+      <div className="container mx-auto mt-10 flex flex-col md:flex-row items-center justify-between px-6 md:px-12 gap-12">
         
         {/* Left Side: Image & Title */}
         <div className="relative flex flex-col items-start md:w-1/2">
@@ -39,7 +39,7 @@ export default function AboutSection() {
             initial={{ y: 40, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-5xl font-bold text-blue-900 mb-6"
+            className="text-4xl md:text-4xl font-bold text-blue-900 mb-8 ml-4"
           >
             Who We Are
           </motion.h2>
@@ -85,8 +85,10 @@ export default function AboutSection() {
           >
             <Link href="/about" className="group relative inline-block">
               <motion.span
-                whileHover={{ x: 5 }}
-                transition={{ duration: 0.2 }}
+                whileHover={{ x: 5,
+                    color: "#d41a24ff",
+                 }}
+                transition={{ duration: 0.4 }}
                 className="text-blue-700 font-semibold text-lg tracking-wide"
               >
                 Learn More

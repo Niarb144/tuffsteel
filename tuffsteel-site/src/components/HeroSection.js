@@ -30,7 +30,7 @@ const slides = [
     title: "Your Trusted Partner in Construction Materials",
     subtitle: "Providing the highest quality steel and service since inception.",
     image: "/images/img3.webp",
-    link: "/contact",
+    link: "/products",
   },
 ];
 
@@ -143,7 +143,7 @@ export default function HeroSlider() {
         >
           <Link
             href={slides[current].link}
-            className="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-full text-white font-semibold transition"
+            className="bg-red-600 hover:bg-blue-500 px-6 py-3 rounded-full text-white font-semibold "
           >
             Explore Now
           </Link>
@@ -151,7 +151,7 @@ export default function HeroSlider() {
       </div>
 
       {/* Navigation Buttons */}
-      <div className="absolute bottom-20 left-22 flex items-center gap-3 z-20">
+      <div className="absolute bottom-20 left-24 flex items-center gap-3 z-20">
         <button
           onClick={handlePrev}
           className="p-3 bg-blue-500 hover:bg-blue-100 rounded-full backdrop-blur-md transition cursor-pointer"
