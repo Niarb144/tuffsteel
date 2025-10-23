@@ -1,6 +1,7 @@
 "use client";
 
 import HeroSection from "../components/HeroSection";
+import AboutSection from "../components/AboutSection";
 import Products from "../components/Products";
 import { motion } from "framer-motion";
 
@@ -8,6 +9,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <AboutSection />
       <motion.section
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}

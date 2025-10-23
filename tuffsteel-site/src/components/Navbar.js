@@ -66,7 +66,7 @@ export default function Navbar() {
               >
                 <span
                   className={`transition-colors duration-300 ${
-                    isActive ? "text-red-600" : "hover:text-red-600"
+                    isActive ? "text-blue-500" : "hover:text-blue-600"
                   }`}
                 >
                   {link.label}

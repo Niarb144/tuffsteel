@@ -16,19 +16,19 @@ const products = [
   },
   {
     name: "Structural Steel",
-    image: "/images/structural-steel.jpg",
+    image: "/images/steel.webp",
     description: "Precision-engineered structural steel suitable for commercial and industrial builds.",
   },
   {
     name: "Reinforcement Mesh",
-    image: "/images/steel-mesh.jpg",
+    image: "/images/img6.webp",
     description: "Durable steel mesh designed for concrete reinforcement and superior bonding.",
   },
 ];
 
 export default function ProductsPage() {
   return (
-    <main className="pt-20">
+    <main className="pt-0">
       {/* Hero Section with Parallax */}
       <section
         className="relative h-[60vh] flex items-center justify-center bg-fixed bg-center bg-cover"

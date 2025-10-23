@@ -28,7 +28,7 @@ const products = [
 
 export default function ProductsPage() {
   return (
-    <main className="pt-20">
+    <main className="pt-0">
       {/* Hero Section with Parallax */}
       <section
         className="relative h-[60vh] flex items-center justify-center bg-fixed bg-center bg-cover"
