@@ -151,7 +151,7 @@ export default function HeroSlider() {
       </div>
 
       {/* Navigation Buttons */}
-      <div className="absolute bottom-20 left-24 flex items-center gap-3 z-20">
+      <div className="absolute bottom-40 md:bottom-20 left-10 md:left-24 flex items-center gap-3 z-20">
         <button
           onClick={handlePrev}
           className="p-3 bg-blue-500 hover:bg-blue-100 rounded-full backdrop-blur-md transition cursor-pointer"
@@ -167,12 +167,12 @@ export default function HeroSlider() {
       </div>
 
       {/* Next Slide Preview */}
-      <div className="absolute bottom-20 right-22 z-20">
+      <div className="absolute bottom-40 right-10 md:bottom-20 md:right-20 z-20">
         <motion.div
           whileHover={{ scale: 1.1 }}
           transition={{ type: "spring", stiffness: 200 }}
           onClick={handleNext}
-          className="cursor-pointer rounded overflow-hidden w-40 h-40 border-2 border-white/40 shadow-lg"
+          className="cursor-pointer rounded overflow-hidden w-30 h-30 border-1 border-white/40 shadow-lg"
         >
           <img
             src={slides[(current + 1) % slides.length].image}

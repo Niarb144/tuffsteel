@@ -19,7 +19,7 @@ export default function HomePage() {
       <StakeHolders />
       <MissionVisionSection />
       <QuoteBanner />
-      <BlogSection />
+      {/* <BlogSection /> */}
       {/* <ProductsSection /> */}
 
       {/* <motion.section
