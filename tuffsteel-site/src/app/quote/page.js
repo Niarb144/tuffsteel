@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Products from "@/components/Products"
+import ProductsSection from "@/components/ProductsSection";
 
 const products = [
   {
@@ -47,7 +47,7 @@ export default function QuotePage() {
       </section>
 
       {/* Product Grid */}
-      <Products />
+      <ProductsSection />
     </main>
   );
 }
