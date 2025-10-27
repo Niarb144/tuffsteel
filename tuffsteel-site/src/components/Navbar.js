@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -52,7 +53,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto flex items-center justify-between relative">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2 z-50">
           <img
             src="/images/logo.webp"
             alt="TuffSteel Logo"
@@ -64,7 +65,7 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div
-          className={`hidden lg:flex gap-8 font-medium transition-colors duration-300 ${
+          className={`hidden lg:flex gap-8 absolute left-1/2 -translate-x-1/2 font-medium transition-colors duration-300 ${
             scrolled ? "text-gray-800" : "text-white"
           }`}
         >
@@ -87,6 +88,31 @@ export default function Navbar() {
               </Link>
             );
           })}
+        </div>
+
+        {/* Right Section (Socials + CTA) */}
+        <div className="hidden lg:flex items-center gap-5">
+          <div
+            className={`flex gap-3 ${
+              scrolled ? "text-gray-800" : "text-white"
+            }`}
+          >
+            <Link href="https://facebook.com" target="_blank">
+              <FaFacebook className="hover:text-blue-600 transition-colors" />
+            </Link>
+            <Link href="https://twitter.com" target="_blank">
+              <FaTwitter className="hover:text-blue-400 transition-colors" />
+            </Link>
+            <Link href="https://instagram.com" target="_blank">
+              <FaInstagram className="hover:text-pink-500 transition-colors" />
+            </Link>
+          </div>
+          <Link
+            href="/quote"
+            className="px-4 py-2 bg-red-600 text-white rounded-full font-semibold hover:bg-red-700 transition-all"
+          >
+            Get a Quote
+          </Link>
         </div>
 
         {/* Animated Hamburger Menu */}
@@ -171,7 +197,37 @@ export default function Navbar() {
                 </motion.div>
               );
             })}
+
+            {/* Socials + CTA below links */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 + navLinks.length * 0.1 }}
+            >
+            <div className="mt-10 flex flex-col items-center gap-6">
+              <div className="flex gap-5 text-xl">
+                <Link href="https://facebook.com" target="_blank">
+                  <FaFacebook className="hover:text-blue-600 transition-colors" />
+                </Link>
+                <Link href="https://twitter.com" target="_blank">
+                  <FaTwitter className="hover:text-blue-400 transition-colors" />
+                </Link>
+                <Link href="https://instagram.com" target="_blank">
+                  <FaInstagram className="hover:text-pink-500 transition-colors" />
+                </Link>
+              </div>
+              <Link
+                href="/quote"
+                onClick={() => setMenuOpen(false)}
+                className="px-5 py-2 bg-red-600 text-white rounded-full font-semibold hover:bg-red-700 transition-all"
+              >
+                Get a Quote
+              </Link>
+            </div>
+            </motion.div>
           </motion.div>
+
+          
         )}
       </AnimatePresence>
     </motion.nav>
