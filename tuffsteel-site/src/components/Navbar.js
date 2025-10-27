@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaInstagram, FaFilePdf } from "react-icons/fa";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -97,6 +97,9 @@ export default function Navbar() {
               scrolled ? "text-gray-800" : "text-white"
             }`}
           >
+            <Link href="https://facebook.com" target="_blank">
+              <FaFilePdf className="hover:text-blue-600 transition-colors"/>
+            </Link>
             <Link href="https://facebook.com" target="_blank">
               <FaFacebook className="hover:text-blue-600 transition-colors" />
             </Link>

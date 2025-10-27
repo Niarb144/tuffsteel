@@ -2,39 +2,55 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import Gallery from "@/components/Gallery";
+import MissionVisionSection from "@/components/MissionVisionSection";
 
 export default function AboutPage() {
-  const galleryImages = [
-    "/images/img1.webp",
-    "/images/img2.webp",
-    "/images/img3.webp",
-    "/images/img4.webp",
-    "/images/img5.webp",
-    "/images/img6.webp",
+  const teamMembers = [
+    {
+      name: "Hassan Juma",
+      position: "Chief Executive Officer",
+      image: "/images/user1.webp",
+    },
+    {
+      name: "Vikram Mashle",
+      position: "Head of Operations",
+      image: "/images/user2.webp",
+    },
+    {
+      name: "Samuel Otieno",
+      position: "Lead Engineer",
+      image: "/images/user3.webp",
+    },
+    {
+      name: "Grace Wambui",
+      position: "Marketing Director",
+      image: "/images/user4.webp",
+    },
   ];
 
   return (
     <div className=""> {/* offset for fixed navbar */}
       {/* HERO SECTION */}
-      <section className="relative h-[70vh] flex items-center justify-center text-center bg-cover bg-center" 
-        style={{ backgroundImage: "url('/images/about.webp')" }}>
-        <div className="absolute inset-0 bg-black/60"></div>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="relative z-10 text-white px-6"
+      <section
+        className="relative h-[60vh] flex items-center justify-center bg-fixed bg-center bg-cover"
+        style={{ backgroundImage: "url('/images/about.webp')" }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
+        <motion.h1
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative text-white text-4xl md:text-5xl font-bold text-center z-10"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">About Us</h1>
-          <p className="text-lg md:text-2xl text-gray-200">
-            Forging Strength, Building the Future Together
-          </p>
-        </motion.div>
+          About Us
+        </motion.h1>
       </section>
 
       {/* COMPANY STORY */}
       <section className="py-16 bg-white text-gray-800">
-        <div className="container mx-auto px-6 md:px-12 lg:px-20">
+        <div className="container mx-auto px-6 md:px-12 lg:px-20 border-2 border-gray-200 pt-12 pb-12 rounded-3xl shadow-lg">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,78 +76,59 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* VALUES SECTION */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-6 md:px-12 lg:px-20">
+      {/* MEET OUR TEAM SECTION */}
+      <section className="py-20 bg-white text-gray-800">
+        <div className="container mx-auto px-6 md:px-12 lg:px-20 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-3xl font-semibold text-center mb-12"
+            className="text-3xl font-semibold mb-6"
           >
-            Our Core Values
+            Meet Our Team
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-gray-600 mb-12 max-w-2xl mx-auto"
+          >
+            The people behind our success — dedicated professionals committed to
+            quality, innovation, and service.
+          </motion.p>
 
-          <div className="grid md:grid-cols-2 gap-10 text-center">
-            {[
-              { title: "Our Mission", text: "To consistently provide the construction and engineering industry with reliable, superior quality products and services." },
-              { title: "Our Vision", text: "Through our dynamic and reliable infrastructure we offer our service throughout Kenya and all across Africa and aspire to be the most trusted and preferred partner in the provision of wholesale construction materials - all from under one roof." },
-            ].map((value, index) => (
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+            {teamMembers.map((member, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="bg-white shadow-md rounded-2xl p-8 hover:shadow-xl transition-all"
+                className="group flex flex-col items-center text-center"
               >
-                <h3 className="text-xl font-semibold text-red-600 mb-3">{value.title}</h3>
-                <p className="text-gray-600">{value.text}</p>
+                <div className="relative w-40 h-40 rounded-full overflow-hidden shadow-md mb-4">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <h3 className="text-lg font-semibold">{member.name}</h3>
+                <p className="text-red-600 text-sm">{member.position}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
+      {/* Mission Vision */}
+      <MissionVisionSection />
 
       {/* IMAGE GALLERY SECTION */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 md:px-12 lg:px-20">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-3xl font-semibold text-center mb-12"
-          >
-            Our Gallery
-          </motion.h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {galleryImages.map((src, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="relative overflow-hidden rounded-2xl shadow-md group"
-              >
-                <Image
-                  src={src}
-                  alt={`Gallery ${index + 1}`}
-                  width={600}
-                  height={400}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center text-white text-lg font-semibold">
-                  Our Work
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Gallery />
     </div>
   );
 }
