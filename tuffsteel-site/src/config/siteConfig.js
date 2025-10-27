@@ -3,7 +3,8 @@
 const siteConfig = {
   company: {
     name: "TuffSteel Industries Ltd",
-    address: "Imaara Daima, Nairobi, Kenya",
+    location: "Imaara Daima, Nairobi, Kenya",
+    address: "PO Box 10757 – 00200, Nairobi Kenya",
     businessHours: [
       { day: "Mon - Fri", hours: "8:00 AM – 5:30 PM" },
       { day: "Sat", hours: "8:00 AM – 1:30 PM" },

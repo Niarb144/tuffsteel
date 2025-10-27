@@ -61,6 +61,8 @@ export default function Footer() {
             <br />
             {company.name}
             <br />
+            {company.location}
+            <br />
             {company.address}
           </p>
           <p className="mt-3 text-sm leading-relaxed">
