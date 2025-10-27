@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Products from "@/components/Products";
-import ProductsSection from "@/components/ProductsSection";
+import Products from "@/components/Products"
 
 const products = [
   {
@@ -28,13 +27,13 @@ const products = [
   },
 ];
 
-export default function ProductsPage() {
+export default function QuotePage() {
   return (
     <main className="pt-0">
       {/* Hero Section with Parallax */}
       <section
         className="relative h-[60vh] flex items-center justify-center bg-fixed bg-center bg-cover"
-        style={{ backgroundImage: "url('/images/img4.webp')" }}
+        style={{ backgroundImage: "url('/images/img2.webp')" }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
         <motion.h1
@@ -43,12 +42,12 @@ export default function ProductsPage() {
           transition={{ duration: 0.8 }}
           className="relative text-white text-4xl md:text-5xl font-bold text-center z-10"
         >
-          Our Products
+          Receive a Quote
         </motion.h1>
       </section>
 
       {/* Product Grid */}
-      <ProductsSection />
+      <Products />
     </main>
   );
 }
