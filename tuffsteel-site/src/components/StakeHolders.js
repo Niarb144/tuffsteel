@@ -31,12 +31,12 @@ export default function StakeholderSection() {
 
       {/* Scrolling Logo Row */}
       <motion.div
-        className="flex gap-12 items-center"
+        className="flex gap-1 md:gap-12 items-center"
         animate={{ x: ["0%", "-50%"] }}
         transition={{
           repeat: Infinity,
           ease: "linear",
-          duration: 25,
+          duration: 15,
         }}
       >
         {duplicatedLogos.map((stakeholder) => (

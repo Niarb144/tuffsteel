@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,7 +8,9 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [clipOrigin, setClipOrigin] = useState({ x: "95%", y: "5%" });
   const pathname = usePathname();
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +19,16 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Detect hamburger position dynamically
+  useEffect(() => {
+    if (buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      const x = ((rect.left + rect.width / 2) / window.innerWidth) * 100;
+      const y = ((rect.top + rect.height / 2) / window.innerHeight) * 100;
+      setClipOrigin({ x: `${x}%`, y: `${y}%` });
+    }
+  }, [menuOpen]);
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -38,7 +50,7 @@ export default function Navbar() {
       transition={{ duration: 0.4 }}
       className="fixed top-0 left-0 w-full z-50 px-6 py-4 backdrop-blur-md transition-all duration-500"
     >
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="container mx-auto flex items-center justify-between relative">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <img
@@ -52,18 +64,14 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div
-          className={`hidden md:flex gap-8 font-medium transition-colors duration-300 ${
+          className={`hidden lg:flex gap-8 font-medium transition-colors duration-300 ${
             scrolled ? "text-gray-800" : "text-white"
           }`}
         >
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="relative group"
-              >
+              <Link key={link.href} href={link.href} className="relative group">
                 <span
                   className={`transition-colors duration-300 ${
                     isActive ? "text-blue-500" : "hover:text-blue-600"
@@ -71,8 +79,6 @@ export default function Navbar() {
                 >
                   {link.label}
                 </span>
-
-                {/* Underline */}
                 <span
                   className={`absolute left-0 -bottom-1 h-[2px] bg-red-600 transition-all duration-300 ease-out 
                     ${isActive ? "w-full" : "w-0 group-hover:w-full"}
@@ -83,47 +89,74 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Hamburger Menu (mobile) */}
+        {/* Animated Hamburger Menu */}
         <div
-          className="md:hidden flex flex-col gap-[6px] cursor-pointer"
+          ref={buttonRef}
+          className="lg:hidden relative w-6 h-5 flex flex-col justify-between cursor-pointer z-[60]"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          <span
-            className={`block w-6 h-[2px] rounded-full transition-all ${
-              scrolled ? "bg-gray-800" : "bg-white"
-            }`}
+          <motion.span
+            animate={{
+              rotate: menuOpen ? 45 : 0,
+              y: menuOpen ? 8 : 0,
+              backgroundColor: scrolled ? "#1f2937" : "#ffffff",
+            }}
+            transition={{ duration: 0.3 }}
+            className="block w-full h-[2px] rounded-full"
           />
-          <span
-            className={`block w-6 h-[2px] rounded-full transition-all ${
-              scrolled ? "bg-gray-800" : "bg-white"
-            }`}
+          <motion.span
+            animate={{
+              opacity: menuOpen ? 0 : 1,
+              backgroundColor: scrolled ? "#1f2937" : "#ffffff",
+            }}
+            transition={{ duration: 0.2 }}
+            className="block w-full h-[2px] rounded-full"
           />
-          <span
-            className={`block w-6 h-[2px] rounded-full transition-all ${
-              scrolled ? "bg-gray-800" : "bg-white"
-            }`}
+          <motion.span
+            animate={{
+              rotate: menuOpen ? -45 : 0,
+              y: menuOpen ? -8 : 0,
+              backgroundColor: scrolled ? "#1f2937" : "#ffffff",
+            }}
+            transition={{ duration: 0.3 }}
+            className="block w-full h-[2px] rounded-full"
           />
         </div>
       </div>
 
-      {/* Mobile Dropdown */}
+      {/* Dynamic Radial Expanding Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className={`md:hidden ${
-              scrolled ? "bg-white text-gray-800" : "bg-white/90 text-gray-800"
-            } shadow-inner`}
+            key="menu"
+            initial={{
+              clipPath: `circle(0% at ${clipOrigin.x} ${clipOrigin.y})`,
+            }}
+            animate={{
+              clipPath: `circle(150% at ${clipOrigin.x} ${clipOrigin.y})`,
+            }}
+            exit={{
+              clipPath: `circle(0% at ${clipOrigin.x} ${clipOrigin.y})`,
+            }}
+            transition={{
+              duration: 0.6,
+              ease: [0.25, 0.8, 0.25, 1],
+            }}
+            className={`fixed top-0 left-0 w-full h-screen ${
+              scrolled ? "bg-white text-gray-800" : "bg-white/95 text-gray-900"
+            } flex flex-col items-center justify-center space-y-8 text-lg font-medium lg:hidden z-[40]`}
+            style={{ pointerEvents: "auto" }}
           >
-            <div className="flex flex-col items-center py-4 space-y-4 font-medium">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
-                return (
+            {navLinks.map((link, index) => {
+              const isActive = pathname === link.href;
+              return (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                >
                   <Link
-                    key={link.href}
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
                     className={`relative ${
@@ -135,13 +168,12 @@ export default function Navbar() {
                       <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-red-600"></span>
                     )}
                   </Link>
-                );
-              })}
-            </div>
+                </motion.div>
+              );
+            })}
           </motion.div>
         )}
       </AnimatePresence>
     </motion.nav>
   );
 }
-
