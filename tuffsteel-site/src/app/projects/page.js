@@ -59,12 +59,12 @@ export default function Projects() {
         </motion.h1>
       </section>
 
-       <Breadcrumb
+       {/* <Breadcrumb
           items={[
             { label: "Home", href: "/" },
             { label: "Projects" },
           ]}
-        />
+        /> */}
 
       {/* PROJECT CATEGORIES */}
       <section className="py-20 px-6 md:px-12 lg:px-20">

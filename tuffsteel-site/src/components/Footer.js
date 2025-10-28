@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaXTwitter } from "react-icons/fa6";
 import {
   FaFacebookF,
   FaTwitter,
@@ -172,7 +173,7 @@ export default function Footer() {
               platform === "facebook"
                 ? FaFacebookF
                 : platform === "twitter"
-                ? FaTwitter
+                ? FaXTwitter
                 : platform === "linkedin"
                 ? FaLinkedinIn
                 : FaInstagram;
