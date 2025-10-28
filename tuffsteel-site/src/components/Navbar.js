@@ -35,7 +35,9 @@ export default function Navbar() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/products", label: "Products" },
+    { href: "/projects", label: "Projects" },
     { href: "/contact", label: "Contact" },
+    
   ];
 
   return (
@@ -97,16 +99,16 @@ export default function Navbar() {
               scrolled ? "text-gray-800" : "text-white"
             }`}
           >
-            <Link href="https://facebook.com" target="_blank">
+            <Link href="/docs/WORLD-OF-TUFFSTEEL.pdf" target="_blank">
               <FaFilePdf className="hover:text-blue-600 transition-colors"/>
             </Link>
-            <Link href="https://facebook.com" target="_blank">
+            <Link href="https://www.facebook.com/Tuffsteel/" target="_blank">
               <FaFacebook className="hover:text-blue-600 transition-colors" />
             </Link>
-            <Link href="https://twitter.com" target="_blank">
+            {/* <Link href="https://twitter.com" target="_blank">
               <FaTwitter className="hover:text-blue-400 transition-colors" />
-            </Link>
-            <Link href="https://instagram.com" target="_blank">
+            </Link> */}
+            <Link href="https://www.instagram.com/tuffsteel_kenya/" target="_blank">
               <FaInstagram className="hover:text-pink-500 transition-colors" />
             </Link>
           </div>
@@ -209,13 +211,16 @@ export default function Navbar() {
             >
             <div className="mt-10 flex flex-col items-center gap-6">
               <div className="flex gap-5 text-xl">
-                <Link href="https://facebook.com" target="_blank">
+                <Link href="/docs/WORLD-OF-TUFFSTEEL.pdf" target="_blank">
+                  <FaFilePdf className="hover:text-blue-600 transition-colors"/>
+                </Link>
+                <Link href="https://www.facebook.com/Tuffsteel/" target="_blank">
                   <FaFacebook className="hover:text-blue-600 transition-colors" />
                 </Link>
-                <Link href="https://twitter.com" target="_blank">
+                {/* <Link href="https://twitter.com" target="_blank">
                   <FaTwitter className="hover:text-blue-400 transition-colors" />
-                </Link>
-                <Link href="https://instagram.com" target="_blank">
+                </Link> */}
+                <Link href="https://www.instagram.com/tuffsteel_kenya/" target="_blank">
                   <FaInstagram className="hover:text-pink-500 transition-colors" />
                 </Link>
               </div>
