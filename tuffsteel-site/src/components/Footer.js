@@ -40,7 +40,7 @@ export default function Footer() {
           onClick={() => setMapOpen(true)}
         >
           <iframe
-            src={mapEmbedUrl}
+            src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Tuffsteel%20Limited,%20Imaara%20Daima,%20Nairobi%20,%20Kenya+(Tuffsteel%20Limited)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
             width="100%"
             height="100%"
             allowFullScreen=""

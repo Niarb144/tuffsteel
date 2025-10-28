@@ -21,8 +21,8 @@ const siteConfig = {
     linkedin: "https://linkedin.com",
     instagram: "https://instagram.com",
   },
-  mapEmbedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.72754716097!2d36.82194651526191!3d-1.2920650359859239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f173af51d4d2b%3A0x4a8d019b7f2f2a21!2sNairobi!5e0!3m2!1sen!2ske!4v1676999999999!5m2!1sen!2ske",
+  mapEmbedUrl: 
+    "https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Tuffsteel%20Limited,%20Imaara%20Daima,%20Nairobi%20,%20Kenya+(Tuffsteel%20Limited)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed",
 };
 
 export default siteConfig;
