@@ -2,54 +2,39 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import ProductsSection from "./ProductsSection";
+import Products from "@/components/Products";
+import ProductsSection from "@/components/ProductsSection";
 
 const products = [
   {
-    name: "Steel",
+    name: "Steel Bars",
     image: "/images/img1.webp",
     description: "High-tensile steel bars designed for strength and durability in all construction projects.",
   },
   {
-    name: "Roofing",
+    name: "Roofing Sheets",
     image: "/images/img2.webp",
     description: "Premium-quality galvanized roofing sheets offering long-lasting protection.",
   },
   {
-    name: "Wire Products",
-    image: "/images/steel.webp",
+    name: "Structural Steel",
+    image: "/images/structural-steel.jpg",
     description: "Precision-engineered structural steel suitable for commercial and industrial builds.",
   },
   {
-    name: "Cement",
-    image: "/images/img6.webp",
+    name: "Reinforcement Mesh",
+    image: "/images/steel-mesh.jpg",
     description: "Durable steel mesh designed for concrete reinforcement and superior bonding.",
   },
-  {
-    name: "Bitumen",
-    image: "/images/img5.webp",   
-    description: "High-performance bitumen for waterproofing and road construction applications.",
-  },
-  {
-    name: "Industrial Chemicals",
-    image: "/images/img4.webp",
-    description: "Protective coatings formulated to enhance the longevity of steel structures.",
-  },
-  {
-    name: "Trade Items",
-    image: "/images/img3.webp",
-    description: "Robust steel pipes ideal for plumbing, gas, and industrial applications.",
-  }  
-
 ];
 
-export default function ProductsPage() {
+export default function Steel() {
   return (
     <main className="pt-0">
       {/* Hero Section with Parallax */}
       <section
-        className="relative h-[40vh] flex items-center justify-center bg-fixed bg-center bg-cover"
-        style={{ backgroundImage: "url('/images/img2.webp')" }}
+        className="relative h-[60vh] flex items-center justify-center bg-fixed bg-center bg-cover"
+        style={{ backgroundImage: "url('/images/img4.webp')" }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
         <motion.h1
@@ -63,7 +48,7 @@ export default function ProductsPage() {
       </section>
 
       {/* Product Grid */}
-        <ProductsSection />
+      <ProductsSection />
     </main>
   );
 }

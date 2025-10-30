@@ -1,77 +1,64 @@
 "use client";
-import { useState } from "react";
+
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+import { useState } from "react";
+import Products from "@/components/Products";
+import ProductsSection from "@/components/ProductsSection";
 
 const products = [
   {
     id: 1,
-    name: "Steel",
-    description:
-      "Durable and high-tensile steel bars perfect for construction projects requiring strength and longevity.",
-    image: "/images/steel.webp",
-    link: "/products/steel-bars",
+    name: "Portland Pozzolone Cnent",
+    image: "/images/cement2.webp",
+    description: "Portland Pozzolona Cement (PPC) 'KP Gold' – CEM II/B – P/32.5R Premium Cement mainly used for General Construction purposes.",
   },
   {
     id: 2,
-    name: "Roofing",
-    description:
-      "Premium quality roofing sheets designed for protection, durability, and aesthetic appeal.",
-    image: "/images/roofing.webp",
-    link: "/products/roofing-sheets",
+    name: "Pozzolanic Cement – 'KP Silver' – CEM IV/B 32.5N",
+    image: "/images/cement3.webp",
+    description: "We manufacture and supply superior quality bituminous roofing felt for water proofing and other applications.",
   },
   {
     id: 3,
-    name: "Trade Items",
-    description:
-      "High-grade steel pipes engineered for industrial and structural applications with corrosion resistance.",
-    image: "/images/img4.webp",
-    link: "/products/trade-items",
+    name: "Sulphate Resisting Cement – 'KP Elite' – CEM I/ SR 42.5N",
+    image: "/images/cement4.webp",
+    description: "Sulphate Resisting Cement is used in construction works where the concrete is exposed to high sulphate content in soil or water.",
   },
   {
     id: 4,
-    name: "Wire Products",
-    description:
-      "Versatile wire mesh for fencing, reinforcement, and construction, built to last and easy to install.",
-    image: "/images/img6.webp",
-    link: "/products/wire-mesh",
-  },
-  {
-    id: 5,
-    name: "Cement",
-    description:
-      "Top-quality cement for all your construction needs, ensuring strong and durable structures.",
-    image: "/images/img5.webp",
-    link: "/products/cement", 
-  },
-  {
-    id: 6,
-    name: "Bitumen",
-    description:
-      "Reliable bitumen products for waterproofing and road construction, offering excellent adhesion and durability.",
-    image: "/images/img2.webp",
-    link: "/products/bitumen",
-  },
-  {
-    id: 7,
-    name: "Industrial Chemicals", 
-    description:
-      "Specialized industrial chemicals for steel treatment and maintenance, enhancing performance and lifespan.",
-    image: "/images/img3.webp",
-    link: "/products/industrial-chemicals",
-  },
+    name: "Bulk Cement",
+    image: "/images/cement5.webp",
+    description: "We supply high-quality bulk cement for large-scale construction projects, ensuring efficiency and cost-effectiveness.",
+  }
 ];
 
-export default function ProductSection() {
-  const [activeProduct, setActiveProduct] = useState(null);
+export default function Cement() {
+    const [activeProduct, setActiveProduct] = useState(null);
 
   return (
-    <section
+    <main className="pt-0">
+      {/* Hero Section with Parallax */}
+      <section
+        className="relative h-[60vh] flex items-center justify-center bg-fixed bg-center bg-cover"
+        style={{ backgroundImage: "url('/images/img4.webp')" }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
+        <motion.h1
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative text-white text-4xl md:text-5xl font-bold text-center z-10"
+        >
+          Our Products
+        </motion.h1>
+      </section>
+
+        <section
       id="products"
       className="relative w-full py-20 bg-white overflow-hidden"
     >
-      <div className="container mx-auto px-6 md:px-12">
+        <div className="container mx-auto px-6 md:px-12">
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -140,6 +127,9 @@ export default function ProductSection() {
           })}
         </div>
       </div>
-    </section>
+      </section>
+      
+      
+    </main>
   );
 }
