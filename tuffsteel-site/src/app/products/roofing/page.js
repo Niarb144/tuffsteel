@@ -10,19 +10,19 @@ const products = [
   {
     id: 1,
     name: "Pre-Painted",
-    image: "/images/bitumen.webp",
+    image: "/images/nyumba-classical.webp",
     description: "We manufacture and supply high grade bitumen for use in road construction",
   },
   {
     id: 2,
     name: "Galvanaized",
-    image: "/images/bitumen-roofing.webp",
+    image: "/images/galvanized.webp",
     description: "We manufacture and supply superior quality bituminous roofing felt for water proofing and other applications.",
   },
   {
     id: 3,
     name: "Roofing Accessories",
-    image: "/images/bitumen-emulsion.webp",
+    image: "/images/guttters.webp",
     description: "Our bitumen emulsion is ideal for road maintenance and surface dressing applications.",
   },
   
