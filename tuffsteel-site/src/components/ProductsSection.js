@@ -11,7 +11,7 @@ const products = [
     description:
       "Durable and high-tensile steel bars perfect for construction projects requiring strength and longevity.",
     image: "/images/steel.webp",
-    link: "/products/steel-bars",
+    link: "/products/steel",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const products = [
     description:
       "Premium quality roofing sheets designed for protection, durability, and aesthetic appeal.",
     image: "/images/roofing.webp",
-    link: "/products/roofing-sheets",
+    link: "/products/roofing",
   },
   {
     id: 3,
